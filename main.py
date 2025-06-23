@@ -2,7 +2,7 @@ from config import *
 from data import load_split, dataset_maker
 from model import build_model
 from train import train_model
-from eval import evaluate_exact_match
+from eval import evaluate_exact_match, plot_pr_curves
 
 def main():
     print("start")
@@ -18,7 +18,8 @@ def main():
     model = build_model(n_f, n_c)
     train_model(model, tr_ds, va_ds, len(x_tr), BATCH_SIZE, EPOCHS)
     
-    evaluate_exact_match(model, te_ds, y_te)
+    probs, y_true = evaluate_exact_match(model, te_ds, y_te)
+    plot_pr_curves(probs, y_true)
     print("done")
 
 if __name__ == "__main__":
