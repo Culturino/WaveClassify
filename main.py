@@ -3,6 +3,7 @@ from data import load_split, dataset_maker
 from model import build_model
 from train import train_model
 from eval import evaluate_exact_match, plot_pr_curves, tune_thresholds
+from visualize import show_samples
 
 def main():
     print("start")
@@ -21,6 +22,7 @@ def main():
     probs, y_true = evaluate_exact_match(model, te_ds, y_te)
     plot_pr_curves(probs, y_true)
     best_t = tune_thresholds(probs, y_true)
+    show_samples(x_te, probs, best_t)
     print("done")
 
 if __name__ == "__main__":
