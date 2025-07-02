@@ -11,6 +11,11 @@ A Deep Learning project that utilizes Long Short-Term Memory (LSTM) networks to 
 - `visualize.py`: Generates matplotlib plots comparing ground truth sequences against model predictions.
 - `main.py`: The central execution script that ties all modules together.
 
+## Example of training/validation process
+
+![Training Loss Curve](training_process.png)
+
+
 ## Requirements
 Ensure you have the following installed:
 - TensorFlow
